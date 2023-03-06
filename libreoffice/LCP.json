@@ -1,0 +1,27 @@
+{
+    "kind": "StatefulSet",
+    "id": "libreoffice",
+    "cpu": 2,
+    "scale": 1,
+    "memory": 2048,
+    "ports": [
+      {
+        "port": 8100,
+        "external": false
+      }
+    ],
+    "readinessProbe": {
+      "exec": {
+        "command": ["ls", "/opt/libreoffice"]
+      },
+      "initialDelaySeconds": 30,
+      "periodSeconds": 10,
+      "timeoutSeconds": 2
+    },
+    "environments": {
+      "infra": {
+        "deploy": false
+      }
+    }
+  }
+  
